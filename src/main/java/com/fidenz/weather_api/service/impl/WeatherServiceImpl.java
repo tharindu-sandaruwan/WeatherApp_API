@@ -5,6 +5,9 @@ import com.fidenz.weather_api.controller.ResponseDTO.WeatherResponseDTO;
 import com.fidenz.weather_api.service.CityService;
 import com.fidenz.weather_api.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -24,6 +27,8 @@ public class WeatherServiceImpl implements WeatherService {
     @Autowired
     private CityService cityService;
 
+    @Override
+    @Cacheable("weatherData")
     public List<WeatherResponseDTO> getWeatherData() {
 
         List<String> cityCodes = cityService.getCityCodes();
@@ -59,5 +64,11 @@ public class WeatherServiceImpl implements WeatherService {
             }
         }
         return weatherDataList;
+    }
+
+    @CacheEvict(value = "weatherData",allEntries = true)
+    @Scheduled(fixedDelayString = "300000")
+    public void evictWeatherDataCache(){
+        System.out.println("Evicting weatherData cache");
     }
 }
