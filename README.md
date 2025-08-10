@@ -52,10 +52,10 @@ You now need to provide values for the properties defined in `application.proper
 - Go to your application's Settings tab in the Auth0 Dashboard.
 - Find the Application URIs section.
 - Add the following URLs:
-     Allowed Callback URLs: http://localhost:8080/login/oauth2/code/auth0
-     Allowed Logout URLs: http://localhost:8080/
+     - Allowed Callback URLs: http://localhost:8080/login/oauth2/code/auth0
+     - Allowed Logout URLs: http://localhost:8080/
 
-#### Run the Application
+#### 5.Run the Application
 
 
 
