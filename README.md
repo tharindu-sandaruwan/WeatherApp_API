@@ -41,15 +41,21 @@ You now need to provide values for the properties defined in `application.proper
 - Log in to your **OpenWeatherMap Account**  
 - You will find your default API key here  
 
-> 💡 *In this code, that API is not configured in environment variables*
+> 💡 *In this code, that API is not configured in environment variables, So you don't need to add that*
 
 #### 3. Set the Variables
-- The easiest way to set these for development is through your IDE's run configuration.  
+- The easiest way to set these for development is through your IDE's run configuration.
+- In IntelliJ IDEA: Go to Run -> Edit Configurations.... In the "Environment variables" field and add them.
 
-**In IntelliJ IDEA:**  
-`Run → Edit Configurations...` → In the "Environment variables" field, add:
-```properties
-AUTH0_CLIENT_ID=your_client_id
-AUTH0_CLIENT_SECRET=your_client_secret
-AUTH0_ISSUER_URI=https://dev-your-tenant.us.auth0.com/
-OPENWEATHER_API_KEY=your_openweather_api_key
+#### 4.Configure Auth0 Application URLs
+- For the login and logout process to work correctly, you must configure the allowed URLs in your Auth0 Application settings.
+- Go to your application's Settings tab in the Auth0 Dashboard.
+- Find the Application URIs section.
+- Add the following URLs:
+     Allowed Callback URLs: http://localhost:8080/login/oauth2/code/auth0
+     Allowed Logout URLs: http://localhost:8080/
+
+#### Run the Application
+
+
+
