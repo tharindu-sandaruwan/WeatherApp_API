@@ -56,6 +56,7 @@ You now need to provide values for the properties defined in `application.proper
      - Allowed Logout URLs: http://localhost:8080/
 
 #### 5.Run the Application
+<img width="1919" height="1141" alt="Screenshot 2025-08-10 233751" src="https://github.com/user-attachments/assets/9d8eecb4-eb96-42b4-8d18-e6e40327fc50" />
 
 
 
